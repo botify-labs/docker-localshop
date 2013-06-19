@@ -1,4 +1,5 @@
 import os
+import ConfigParser
 
 from fabric.context_managers import prefix
 from fabric.api import *
@@ -16,15 +17,15 @@ def localshop_install():
 @task
 def localshop_init():
     """Emulates the localshop init phase"""
-    # Evaluate the contextual localshop.rc variables
-    # and push them to environment.
-    # Fetch the user, pass and mail from system env,
+    # Extract the user, pass and mail from config file,
     # assuming docker build has set them already
-    local("/bin/bash -c 'source localshop.rc'")
-    localshop_user = os.environ['LOCALSHOP_USER']
-    localshop_pass = os.environ['LOCALSHOP_PASSWORD']
-    localshop_mail = os.environ['LOCALSHOP_MAIL']
-    
+    config = ConfigParser.ConfigParser()
+    config.read("localshop.conf")
+
+    localshop_user = config.get('superuser', 'username')
+    localshop_pass = config.get('superuser', 'password')
+    localshop_mail = config.get('superuser', 'mail')
+
     # Compute localshop super creation instruction
     # from environement variables
     superuser_create = "from django.contrib.auth.models import User; "\
@@ -39,3 +40,4 @@ def localshop_init():
         local("su localshop -c 'localshop syncdb --noinput'")  # Ensure db is created by localshop
         local("localshop migrate")
         local('echo "{inst}" | localshop shell'.format(inst=superuser_create))
+
