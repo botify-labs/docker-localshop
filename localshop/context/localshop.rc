@@ -1,0 +1,3 @@
+export LOCALSHOP_USER=localshop
+export LOCALSHOP_PASSWORD=localshop
+export LOCALSHOP_MAIL=localshop@localshop.com
