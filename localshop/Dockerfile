@@ -1,3 +1,7 @@
+# Copyright (c) 2013 theo crevon
+#
+# See the file LICENSE for copying permission.
+
 FROM ubuntu
 MAINTAINER tcrevon@gmail.com
 

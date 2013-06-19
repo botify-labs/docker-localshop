@@ -1,3 +1,7 @@
+# Copyright (c) 2013 theo crevon
+#
+# See the file LICENSE for copying permission.
+
 import os
 import ConfigParser
 
