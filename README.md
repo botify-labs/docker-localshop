@@ -3,9 +3,13 @@
 Recipe for building a [Localshop pypi registry](https://github.com/mvantellingen/localshop) docker container.
 
 
-## Building
+## Configuration
 
-**NOTA** Locashop is built upon the [Django](https://www.djangoproject.com/) framework, and requires to set up a ``superuser``. As a default this recipe
+As a convention, here at [botify-labs](https://github.com/botify-labs), we set up the Docker building filesystem context
+in a ``context`` subfolder mirroring the actual final container fs state, just like you would do in a [puppet]() module ``files``
+folder. If you don't get it yet, take a look at the ``context`` folder of the repository ;)
+
+However, locashop is built upon the [Django](https://www.djangoproject.com/) framework, and requires to set up a ``superuser``. As a default this recipe
 will create a ``localshop`` superuser with ``localshop`` password. However, if you'd wanna tune it a little bit
 to set up your own in the ``/docker-localshop/localshop/context/localshop.conf`` file.
 
