@@ -55,7 +55,7 @@ THE SOFTWARE.
 ## Contribute
 
 Localshop container builder is far from perfect, and could be easily enhanced or fixed, don't restrain yourself
-just follw the path:
+just follow the path:
 
 1. Check for open issues or open a fresh issue to start a discussion around a feature idea or a bug.
 2. Fork the repository on Github to start making your changes to the master branch.
