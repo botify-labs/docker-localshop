@@ -13,6 +13,8 @@ However, locashop is built upon the [Django](https://www.djangoproject.com/) fra
 will create a ``localshop`` superuser with ``localshop`` password. However, if you'd wanna tune it a little bit
 to set up your own in the ``/docker-localshop/localshop/context/localshop.conf`` file.
 
+## Building
+
 ```bash
 $ git clone git@github.com:oleiade/docker-localshop
 $ cd docker-localshop
