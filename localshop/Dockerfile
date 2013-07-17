@@ -38,6 +38,11 @@ ADD ./fabfile /home/localshop/fabfile
 RUN cd /home/localshop && fab localshop_install
 RUN cd /home/localshop && fab localshop_init
 
+# Ensure localshop sources directory is writable
+RUN mkdir /home/localshop/source
+RUN chown -R localshop:localshop /home/localshop/source
+RUN chmod -R 775 /home/localshop/source
+
 # Ensure localshop db is in read-write mode
 RUN chown localshop:localshop /home/localshop/.localshop/localshop.db
 RUN chmod 775 /home/localshop/.localshop/localshop.db
